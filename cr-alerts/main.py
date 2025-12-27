@@ -2,13 +2,16 @@ import asyncio
 import os
 from telethon import TelegramClient
 from telethon.sessions import MemorySession
+from dotenv import load_dotenv
 
-api_id = int(os.getenv('API_ID', '30010211'))
-api_hash = os.getenv('API_HASH', '3b957e890a41aa5f6861fb94d0956673')
-bot_token = os.getenv('BOT_TOKEN', '7747225012:AAH_V5QFebYbF2ia6Mg309myh86HxPdAJwE')
-phone = os.getenv('PHONE', '+79250675488')
-CHANNEL_ID = -1001736139361
-TOPIC_ID = 344855
+load_dotenv()
+
+api_id = int(os.getenv('API_ID'))
+api_hash = os.getenv('API_HASH')
+bot_token = os.getenv('BOT_TOKEN')
+phone = os.getenv('PHONE')
+CHANNEL_ID = int(os.getenv('CHANNEL_ID'))
+TOPIC_ID = int(os.getenv('TOPIC_ID'))
 
 async def monitor_topic():
     client = TelegramClient(MemorySession(), api_id, api_hash)
